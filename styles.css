@@ -88,7 +88,30 @@ a{
     .class-home-text {
         text-align: center;
     }
-     .class-home-title {
-
+     .class-home-title {      
+            font-size: 3.5rem;
+            font-weight: bold;          
      }
 
+     .class-post-filter {
+        display:  flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 1.2rem;
+        margin-top: 2rem ;
+        
+     }
+        .class-filter-item {
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 4px 10px;
+            border-radius: 4px;
+            transition: all 300ms ease-in-out;
+            border: 1px solid #f7EBEB;
+            opacity: 0.8; 
+        }
+        .class-filter-item:hover{
+            border: 1px solid #f7d3d3;
+            opacity: 1;
+        } 
