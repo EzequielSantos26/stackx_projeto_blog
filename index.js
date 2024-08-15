@@ -34,3 +34,72 @@ card_data.map((data) => {
 
   parentCard.appendChild(cardElement);
 });
+
+const allcards = document.querySelectorAll("[data-cards]");
+const allviews = document.querySelectorAll("[data-views]");
+const allfilters = document.querySelectorAll("[data-filter]");
+
+const addAndRemoveClassActive = (target) => {
+  allfilters.forEach((category) => category.classList.remove("class-active"));
+  target.classList.add("class-active");
+};
+
+//filtro por categoria
+window.addEventListener("click", (event) => {
+  const target = event.target;
+  const filterCategorye = target.getAttribute("data-filter");
+
+  switch (filterCategorye) {
+    case "all-categories":
+      addAndRemoveClassActive(target);
+      allcards.forEach((card) => {
+        card.style.display = "block";
+      });
+
+      break;
+    case "category-1":
+      addAndRemoveClassActive(target);
+      allcards.forEach((card) => {
+        if (card.getAttribute("data-category") === "category_1") {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+      break;
+    case "category-2":
+      addAndRemoveClassActive(target);
+      allcards.forEach((card) => {
+        if (card.getAttribute("data-category") === "category_2") {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+      break;
+    case "category-3":
+      addAndRemoveClassActive(target);
+
+      allcards.forEach((card) => {
+        if (card.getAttribute("data-category") === "category_3") {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+      break;
+    case "category-4":
+      addAndRemoveClassActive(target);
+      allcards.forEach((card) => {
+        if (card.getAttribute("data-category") === "category_4") {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+      break;
+
+    default:
+      break;
+  }
+});
