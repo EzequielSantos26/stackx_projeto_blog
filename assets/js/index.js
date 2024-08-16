@@ -91,5 +91,41 @@ window.addEventListener("click", (event) => {
 
     default:
       break;
+
   }
 });
+
+ allcards.forEach (
+   (card, indice) => {
+     card. addEventListener(
+      'click', () => { 
+        const cardAtrributeId = Number (card.getAttribute('data-id'));
+       
+        switch (cardAtrributeId) {
+          case 1:
+
+            allviews.forEach((view, indice)=> { 
+              if ((indice + 1) === cardAtrributeId) {
+                  view.innerHTML =Number(view.innerHTML) + 1;
+                window.localStorage.setItem('views_card_1',view.innerHTML);
+                window.location.assign('/assets/post-description/post.html'); 
+                return
+              }
+              
+            });
+            break;
+
+          case 2: 
+            break;
+          case 3:
+            break;
+          case 4:
+            break;
+
+          default:
+            break;
+        }
+      } 
+     ); 
+   }
+ );
