@@ -204,10 +204,9 @@ a {
     }
     .class-active:hover {
         border: 1px solid black;
-    
+    }
 
-       
-       
-       
+    .class-idividual-card { 
+        max-width: 400px; 
     }
     

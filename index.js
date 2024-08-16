@@ -43,8 +43,17 @@ const addAndRemoveClassActive = (target) => {
   allfilters.forEach((category) => category.classList.remove("class-active"));
   target.classList.add("class-active");
 };
+const showIndividualCard = (category) => {
+  allcards.forEach((card) => {
+    if (card.getAttribute("data-category") === category) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
 
-//filtro por categoria
+//filtro por categoria 
 window.addEventListener("click", (event) => {
   const target = event.target;
   const filterCategorye = target.getAttribute("data-filter");
@@ -55,48 +64,29 @@ window.addEventListener("click", (event) => {
       allcards.forEach((card) => {
         card.style.display = "block";
       });
-
+      parentCard.classList.remove("class-idividual-card")
       break;
     case "category-1":
       addAndRemoveClassActive(target);
-      allcards.forEach((card) => {
-        if (card.getAttribute("data-category") === "category_1") {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
-      });
+      showIndividualCard("category_1")
+      parentCard.classList.add("class-idividual-card")
       break;
     case "category-2":
       addAndRemoveClassActive(target);
-      allcards.forEach((card) => {
-        if (card.getAttribute("data-category") === "category_2") {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
-      });
+      showIndividualCard("category_2")
+      parentCard.classList.add("class-idividual-card")
+      
       break;
     case "category-3":
       addAndRemoveClassActive(target);
-
-      allcards.forEach((card) => {
-        if (card.getAttribute("data-category") === "category_3") {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
-      });
+      showIndividualCard("category_3")
+      parentCard.classList.add("class-idividual-card")
       break;
     case "category-4":
       addAndRemoveClassActive(target);
-      allcards.forEach((card) => {
-        if (card.getAttribute("data-category") === "category_4") {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
-      });
+      showIndividualCard("category_4")
+      parentCard.classList.add("class-idividual-card")
+      
       break;
 
     default:
