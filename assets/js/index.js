@@ -51,9 +51,20 @@ const showIndividualCard = (category) => {
       card.style.display = "none";
     }
   });
-}
+};
 
-//filtro por categoria 
+const loadIdividualCard = (cardAtrributeId, localStoragekeyName) => {
+  allviews.forEach((view, indice) => {
+    if (indice + 1 === cardAtrributeId) {
+      view.innerHTML = Number(view.innerHTML) + 1;
+      window.localStorage.setItem(localStoragekeyName, view.innerHTML);
+      window.location.assign("/assets/post-description/post.html");
+      return;
+    }
+  });
+};
+
+//filtro por categoria
 window.addEventListener("click", (event) => {
   const target = event.target;
   const filterCategorye = target.getAttribute("data-filter");
@@ -64,68 +75,57 @@ window.addEventListener("click", (event) => {
       allcards.forEach((card) => {
         card.style.display = "block";
       });
-      parentCard.classList.remove("class-idividual-card")
+      parentCard.classList.remove("class-idividual-card");
       break;
     case "category-1":
       addAndRemoveClassActive(target);
-      showIndividualCard("category_1")
-      parentCard.classList.add("class-idividual-card")
+      showIndividualCard("category_1");
+      parentCard.classList.add("class-idividual-card");
       break;
     case "category-2":
       addAndRemoveClassActive(target);
-      showIndividualCard("category_2")
-      parentCard.classList.add("class-idividual-card")
-      
+      showIndividualCard("category_2");
+      parentCard.classList.add("class-idividual-card");
+
       break;
     case "category-3":
       addAndRemoveClassActive(target);
-      showIndividualCard("category_3")
-      parentCard.classList.add("class-idividual-card")
+      showIndividualCard("category_3");
+      parentCard.classList.add("class-idividual-card");
       break;
     case "category-4":
       addAndRemoveClassActive(target);
-      showIndividualCard("category_4")
-      parentCard.classList.add("class-idividual-card")
-      
+      showIndividualCard("category_4");
+      parentCard.classList.add("class-idividual-card");
+
       break;
 
     default:
       break;
-
   }
 });
 
- allcards.forEach (
-   (card, indice) => {
-     card. addEventListener(
-      'click', () => { 
-        const cardAtrributeId = Number (card.getAttribute('data-id'));
-       
-        switch (cardAtrributeId) {
-          case 1:
+allcards.forEach((card, indice) => {
+  card.addEventListener("click", () => {
+    const cardAtrributeId = Number(card.getAttribute("data-id"));
 
-            allviews.forEach((view, indice)=> { 
-              if ((indice + 1) === cardAtrributeId) {
-                  view.innerHTML =Number(view.innerHTML) + 1;
-                window.localStorage.setItem('views_card_1',view.innerHTML);
-                window.location.assign('/assets/post-description/post.html'); 
-                return
-              }
-              
-            });
-            break;
+    switch (cardAtrributeId) {
+      case 1:
+        loadIdividualCard(cardAtrributeId, "views_card_1");
+        break;
 
-          case 2: 
-            break;
-          case 3:
-            break;
-          case 4:
-            break;
+      case 2:
+        loadIdividualCard(cardAtrributeId, "views_card_2");
+        break;
+      case 3:
+        loadIdividualCard(cardAtrributeId, "views_card_3");
+        break;
+      case 4:
+        loadIdividualCard(cardAtrributeId, "views_card_4");
+        break;
 
-          default:
-            break;
-        }
-      } 
-     ); 
-   }
- );
+      default:
+        break;
+    }
+  });
+});
