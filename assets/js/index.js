@@ -105,8 +105,10 @@ window.addEventListener("click", (event) => {
   }
 });
 
-allcards.forEach((card, indice) => {
+allcards.forEach((card, indiceCard) => {
   card.addEventListener("click", () => {
+    window.localStorage.setItem('indiceCard', (indiceCard + 1));
+
     const cardAtrributeId = Number(card.getAttribute("data-id"));
 
     switch (cardAtrributeId) {
